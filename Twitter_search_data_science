@@ -1,0 +1,18 @@
+from twython import Twython
+
+CONSUMER_KEY = ‘a’
+CONSUMER_SECRET = ‘b’
+ACCESS_TOKEN = ‘c’
+ACCESS_TOKEN_SECRET = ‘d’
+
+twitter = Twython(app_key=CONSUMER_KEY,
+            app_secret=CONSUMER_SECRET,
+            oauth_token=ACCESS_TOKEN,
+            oauth_token_secret=ACCESS_TOKEN_SECRET)
+
+for status in twitter.search(q='"data science"')["statuses"]:
+    #user = status["user"]["screen name"].encode('utf-8')
+    text = status["text"].encode('utf-8')
+    print (text) #(user, ":", text)
+    print
+    
