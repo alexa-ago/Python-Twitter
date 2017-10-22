@@ -1,0 +1,30 @@
+from twython import Twython
+
+CONSUMER_KEY = ‘a’
+CONSUMER_SECRET = ‘b’
+ACCESS_TOKEN = ‘c’
+ACCESS_TOKEN_SECRET = ‘d’
+
+twitter = Twython(app_key=CONSUMER_KEY,
+            app_secret=CONSUMER_SECRET,
+            oauth_token=ACCESS_TOKEN,
+            oauth_token_secret=ACCESS_TOKEN_SECRET)
+
+
+for status in twitter.search(q='"data science"',result_type='popular' )["statuses"]:
+    user = status['user']['screen_name']   
+    text = status["text"] 
+    print (user, "----->", text)
+
+———————————
+Output
+———————————————
+
+HarvardBiz -----> Data science can help hospitals streamline their operational decisions
+https://t.co/KUdHu1seQP
+DioFavatas -----> 👊👍 great post @newscred | The Rise of "Hybrid Marketing" + Data Science https://t.co/0t5kl6OrEV #DataScience #Marketing
+ShelitaBurke -----> I'm featured on Forbes!! 💖❤️
+Special thanks to the amazing writer: @emilymarieblake
+@forbes
+#SpecialShelita… https://t.co/KZHNRPBGU4
+hortonworks -----> What does a modern #DataScience platform look like? Get a demo of #DSX on HDP, here: https://t.co/9HLErL6veE… https://t.co/6P75c7z1Ji
